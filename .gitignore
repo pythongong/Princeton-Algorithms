@@ -1,0 +1,26 @@
+# Ignore compiled class files
+*.class
+
+# Ignore build output directories
+bin/
+target/
+
+# Ignore IDE-specific files and directories
+.settings/
+.classpath
+.project
+.idea/
+
+# Ignore Maven specific files
+mvnw
+.mvn/
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
