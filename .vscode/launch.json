@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "PercolationStats",
+            "request": "launch",
+            "mainClass": "assign1.PercolationStats",
+            "projectName": "princeton-algorithms_6c4b023",
+            "args": [
+                "10", "30"
+            ]
+        },
+        {
+            "type": "java",
+            "name": "PercolationVisualizer",
+            "request": "launch",
+            "mainClass": "assign1.PercolationVisualizer",
+            "projectName": "princeton-algorithms_6c4b023",
+            "args": [
+                "D:\\Princeton Algorithms\\percolation\\input1.txt"
+            ]
+        }
+    ]
+}
