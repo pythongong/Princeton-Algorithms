@@ -3,6 +3,35 @@
     "configurations": [
         {
             "type": "java",
+            "name": "FastCollinearPoints",
+            "request": "launch",
+            "mainClass": "assign3.FastCollinearPoints",
+            "projectName": "princeton-algorithms_6c4b023",
+            "args": [
+                "D:\\Princeton Algorithms\\collinear\\grid6x6.txt"
+                
+            ]
+        },
+        {
+            "type": "java",
+            "name": "CollinearPointClient",
+            "request": "launch",
+            "mainClass": "assign3.CollinearPointClient",
+            "projectName": "princeton-algorithms_6c4b023",
+            "args": [
+                "D:\\Princeton Algorithms\\collinear\\input10000.txt"
+                
+            ]
+        },
+        {
+            "type": "java",
+            "name": "Point",
+            "request": "launch",
+            "mainClass": "assign3.Point",
+            "projectName": "princeton-algorithms_6c4b023"
+        },
+        {
+            "type": "java",
             "name": "Permutation",
             "request": "launch",
             "mainClass": "assign2.Permutation",
