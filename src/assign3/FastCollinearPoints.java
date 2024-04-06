@@ -29,8 +29,18 @@ public class FastCollinearPoints {
                 throw new IllegalArgumentException();
             }
         }
-        inilizeLines(points);
-    }    
+        inilizeLines(copiedPoints);
+    }
+
+    // the number of line segments   
+    public int numberOfSegments() {
+        return lines.length;
+    }         
+    // the line segments
+    public LineSegment[] segments() {
+        return Arrays.copyOf(lines, lines.length);
+    }
+    
     private void inilizeLines(Point[] points) {
         int n = points.length;
         if (n < 4) {
@@ -42,53 +52,27 @@ public class FastCollinearPoints {
         for (Point p : points) {
             Arrays.sort(slopeSortedPs, p.slopeOrder());
             for (int i = 1; i < n;) {
+                Point minPoint = slopeSortedPs[i], maxPoint = slopeSortedPs[i];
                 int j = i + 1;
-                while (j < n && p.slopeTo(slopeSortedPs[i]) == p.slopeTo(slopeSortedPs[j])) {
-                    j++;
+                for (; j < n && p.slopeTo(slopeSortedPs[i]) == p.slopeTo(slopeSortedPs[j]); j++) {
+                    if (minPoint.compareTo(slopeSortedPs[j]) > 0) {
+                        minPoint = slopeSortedPs[j];
+                    }
+                    if (maxPoint.compareTo(slopeSortedPs[j]) < 0) {
+                        maxPoint = slopeSortedPs[j];
+                    }
                 }
-                if (j - i >= 3 && p.compareTo(min(slopeSortedPs, i, j - 1)) < 0) {
-                    lineBag.add(new LineSegment(p, max(slopeSortedPs, i, j - 1)));
+                if (j - i >= 3 && p.compareTo(minPoint) < 0) {
+                    lineBag.add(new LineSegment(p, maxPoint));
                 }
                 i = j;
             }
         }
         lines = new LineSegment[lineBag.size()];
-        int index = 0;
+        int i = 0;
         for (LineSegment line : lineBag) {
-            lines[index++] = line;
+            lines[i++] = line;
         }
-    }
-    // the number of line segments   
-    public int numberOfSegments() {
-        return lines.length;
-    }         
-    // the line segments
-    public LineSegment[] segments() {
-        LineSegment[] copiedLines = new LineSegment[lines.length];
-        for (int i = 0; i < lines.length; i++) {
-            copiedLines[i] = lines[i];
-        }
-        return copiedLines;
-    }
-    
-    private Point min(Point[] a, int lo, int hi) {
-        Point ret = a[lo];
-        for (int i = lo + 1; i <= hi; i++) {
-            if (ret.compareTo(a[i]) > 0) {
-                ret = a[i];
-            }
-        }
-        return ret;
-    }
-
-    private Point max(Point[] a, int lo, int hi) {
-        Point ret = a[lo];
-        for (int i = lo + 1; i <= hi; i++) {
-            if (ret.compareTo(a[i]) < 0) {
-                ret = a[i];
-            }
-        }
-        return ret;
     }
     
 

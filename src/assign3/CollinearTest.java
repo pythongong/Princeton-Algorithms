@@ -64,9 +64,9 @@ public class CollinearTest {
             Stopwatch stopwatch = new Stopwatch();
             FastCollinearPoints collinearPoints = new FastCollinearPoints(points);
             System.out.println(stopwatch.elapsedTime());
-            LineSegment[] segments = collinearPoints.segments();
             System.out.println(filename);
             System.out.println(collinearPoints.numberOfSegments());
+            LineSegment[] segments = collinearPoints.segments();
             for (LineSegment lineSegment : segments) {
                 System.out.println(lineSegment.toString());
             }

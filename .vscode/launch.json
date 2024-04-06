@@ -3,32 +3,23 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CollinearTest",
+            "request": "launch",
+            "mainClass": "assign3.CollinearTest",
+            "projectName": "princeton-algorithms_6c4b023",
+            "args": [
+                "D:\\Princeton Algorithms\\collinear\\input80.txt"
+            ]
+        },
+        {
+            "type": "java",
             "name": "FastCollinearPoints",
             "request": "launch",
             "mainClass": "assign3.FastCollinearPoints",
             "projectName": "princeton-algorithms_6c4b023",
             "args": [
                 "D:\\Princeton Algorithms\\collinear\\grid6x6.txt"
-                
             ]
-        },
-        {
-            "type": "java",
-            "name": "CollinearPointClient",
-            "request": "launch",
-            "mainClass": "assign3.CollinearPointClient",
-            "projectName": "princeton-algorithms_6c4b023",
-            "args": [
-                "D:\\Princeton Algorithms\\collinear\\input10000.txt"
-                
-            ]
-        },
-        {
-            "type": "java",
-            "name": "Point",
-            "request": "launch",
-            "mainClass": "assign3.Point",
-            "projectName": "princeton-algorithms_6c4b023"
         },
         {
             "type": "java",
@@ -40,20 +31,6 @@
                 "3",
                 "D:\\Princeton Algorithms\\queues\\distinct.txt"
             ]
-        },
-        {
-            "type": "java",
-            "name": "RandomizedQueue",
-            "request": "launch",
-            "mainClass": "assign2.RandomizedQueue",
-            "projectName": "princeton-algorithms_6c4b023"
-        },
-        {
-            "type": "java",
-            "name": "Deque",
-            "request": "launch",
-            "mainClass": "assign2.Deque",
-            "projectName": "princeton-algorithms_6c4b023"
         },
         {
             "type": "java",

@@ -29,6 +29,17 @@ public class BruteCollinearPoints {
         inilizeLines(copiedPoints);
         
     }
+
+    // the number of line segments  
+    public int numberOfSegments() {
+        return lines.length;
+    }         
+    // the line segments
+    public LineSegment[] segments() {
+        return Arrays.copyOf(lines, lines.length);
+    }
+    
+
     private void inilizeLines(Point[] points) {
         int n = points.length;
         if (n < 4) {
@@ -53,24 +64,10 @@ public class BruteCollinearPoints {
             }
         }
         lines = new LineSegment[lineBag.size()];
-        int index = 0;
+        int i = 0;
         for (LineSegment line : lineBag) {
-            lines[index++] = line;
+            lines[i++] = line;
         }
-    }
-
-    // the number of line segments   
-    public int numberOfSegments() {
-        return lines.length;
-    }
-             
-    // the line segments
-    public LineSegment[] segments() {
-        LineSegment[] copiedLines = new LineSegment[lines.length];
-        for (int i = 0; i < lines.length; i++) {
-            copiedLines[i] = lines[i];
-        }
-        return copiedLines;
     }
     
 
