@@ -4,5 +4,6 @@
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
         "d:\\Princeton Algorithms\\princeton-algorithms\\lib\\algs4.jar"
-    ]
+    ],
+    "workbench.editor.enablePreview": false
 }

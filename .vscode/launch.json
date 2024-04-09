@@ -3,6 +3,26 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Solver",
+            "request": "launch",
+            "mainClass": "assign4.Solver",
+            "projectName": "princeton-algorithms_6c4b023",
+            "args": [
+                "D:\\Princeton Algorithms\\8puzzle\\puzzle4x4-unsolvable.txt"
+            ]
+        },
+        {
+            "type": "java",
+            "name": "EightPuzzleTest",
+            "request": "launch",
+            "mainClass": "assign4.EightPuzzleTest",
+            "projectName": "princeton-algorithms_6c4b023",
+            "args": [
+                "D:\\Princeton Algorithms\\8puzzle\\puzzle08.txt"
+            ]
+        },
+        {
+            "type": "java",
             "name": "CollinearTest",
             "request": "launch",
             "mainClass": "assign3.CollinearTest",
