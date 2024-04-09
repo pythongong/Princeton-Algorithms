@@ -13,7 +13,6 @@ public class Board {
     private static final int[] DX = {-1, 0, 0, 1};
     private static final int[] DY = {0, -1, 1, 0};
 
-
     private int[][] grid;
 
     private int hammingNum;
@@ -23,19 +22,14 @@ public class Board {
     // create a board from an n-by-n array of tiles,
     // where tiles[row][col] = tile at (row, col)
     public Board(int[][] tiles) {
+        if (tiles == null || tiles.length == 0) {
+            throw new IllegalArgumentException("tiles can't be null or empty");
+        }
         grid = copyTitles(tiles);
         hammingNum = -1;
         manhattanNum = -1;
     }
-                                           
-    private int[][] copyTitles(int[][] tiles) {
-        int n = tiles.length;
-        int[][] newTiles = new int[n][n];
-        for (int i = 0; i < n; i++) {
-            newTiles[i] = Arrays.copyOf(tiles[i], n);
-        }
-        return newTiles;
-    }
+                                        
 
     // string representation of this board
     public String toString() {
@@ -47,7 +41,7 @@ public class Board {
                 if (j == len - 1) {
                     stringBuilder.append(grid[i][j] + System.lineSeparator());
                 } else {
-                    stringBuilder.append(grid[i][j] + " ");
+                    stringBuilder.append(String.format("%2d", grid[i][j]));
                 }
             }
         }
@@ -62,7 +56,7 @@ public class Board {
     // // number of tiles out of place
     public int hamming() {
         if (hammingNum == -1) {
-            initProperties();
+            initManhattanAndHamming();
         }
         return hammingNum;
     }
@@ -70,32 +64,9 @@ public class Board {
     // // sum of Manhattan distances between tiles and goal
     public int manhattan() {
         if (manhattanNum == -1) {
-            initProperties();
+            initManhattanAndHamming();
         }
         return manhattanNum;
-    }
-
-    private void initProperties() {
-        int n = dimension();
-        hammingNum = 0;
-        manhattanNum = 0;
-        int num = 1;
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                if (grid[i][j] != num++ && grid[i][j] != 0) {
-                    hammingNum++;
-                    int cur = grid[i][j];
-                    if (cur % n == 0) {
-                        manhattanNum += Math.abs(i - ((cur / n) - 1)) 
-                        + Math.abs(j - (n-1));
-                    } else {
-                        manhattanNum += Math.abs(i - (cur / n)) 
-                        + Math.abs(j - ((grid[i][j] % n) - 1));
-                    }
-                    
-                }
-            }
-        }
     }
 
     // // is this board the goal board?
@@ -178,7 +149,37 @@ public class Board {
     }
 
 
+    private void initManhattanAndHamming() {
+        int n = dimension();
+        hammingNum = 0;
+        manhattanNum = 0;
+        int num = 1;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (grid[i][j] != num++ && grid[i][j] != 0) {
+                    hammingNum++;
+                    int cur = grid[i][j];
+                    if (cur % n == 0) {
+                        manhattanNum += Math.abs(i - ((cur / n) - 1)) 
+                        + Math.abs(j - (n-1));
+                    } else {
+                        manhattanNum += Math.abs(i - (cur / n)) 
+                        + Math.abs(j - ((grid[i][j] % n) - 1));
+                    }
+                    
+                }
+            }
+        }
+    }
 
+    private int[][] copyTitles(int[][] tiles) {
+        int n = tiles.length;
+        int[][] newTiles = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            newTiles[i] = Arrays.copyOf(tiles[i], n);
+        }
+        return newTiles;
+    }
     private boolean isInGrid(int index) {
         return index >= 0 && index < grid.length;
     }

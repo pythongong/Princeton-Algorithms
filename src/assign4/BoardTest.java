@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class EightPuzzleTest {
+public class BoardTest {
     
     public static void main(String[] args) {
         if (args.length == 0) {

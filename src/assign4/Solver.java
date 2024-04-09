@@ -8,7 +8,7 @@ import edu.princeton.cs.algs4.StdOut;
 // find a solution to the initial board (using the A* algorithm)
 public class Solver {
 
-    private Stack<Board> boardQueue;
+    private Stack<Board> pathBoards;
 
     public Solver(Board initial) {
         if (initial == null) {
@@ -26,9 +26,9 @@ public class Solver {
         while (!originPq.isEmpty() && !twinPq.isEmpty()) {
             SearchNode minNode = originPq.delMin();
             if (minNode.board.isGoal()) {
-                boardQueue = new Stack<>();
+                pathBoards = new Stack<>();
                 while (minNode != null) {
-                    boardQueue.push(minNode.board);
+                    pathBoards.push(minNode.board);
                     minNode = minNode.previous;
                 }
                 return;
@@ -58,20 +58,20 @@ public class Solver {
 
     // is the initial board solvable? (see below)
     public boolean isSolvable() {
-        return boardQueue != null;
+        return pathBoards != null;
     }
 
     // min number of moves to solve initial board; -1 if unsolvable
     public int moves() {
-        if (boardQueue == null) {
+        if (pathBoards == null) {
             return -1;
         }
-        return boardQueue.size()-1;
+        return pathBoards.size()-1;
     }
 
     // sequence of boards in a shortest solution; null if unsolvable
     public Iterable<Board> solution() {
-        return boardQueue;
+        return pathBoards;
     }
 
    
