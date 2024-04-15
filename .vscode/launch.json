@@ -3,6 +3,36 @@
     "configurations": [
         {
             "type": "java",
+            "name": "KdTreeVisualizer",
+            "request": "launch",
+            "mainClass": "assign5.KdTreeVisualizer",
+            "projectName": "princeton-algorithms_6c4b023",
+            "args": [
+                "D:\\Princeton Algorithms\\kdtree\\input10.txt"
+            ]
+        },
+        {
+            "type": "java",
+            "name": "NearestNeighborVisualizer",
+            "request": "launch",
+            "mainClass": "assign5.NearestNeighborVisualizer",
+            "projectName": "princeton-algorithms_6c4b023",
+            "args": [
+                "D:\\Princeton Algorithms\\kdtree\\input10.txt"
+            ]
+        },
+        {
+            "type": "java",
+            "name": "RangeSearchVisualizer",
+            "request": "launch",
+            "mainClass": "assign5.RangeSearchVisualizer",
+            "projectName": "princeton-algorithms_6c4b023",
+            "args": [
+                "D:\\Princeton Algorithms\\kdtree\\input10.txt"
+            ]
+        },
+        {
+            "type": "java",
             "name": "Solver",
             "request": "launch",
             "mainClass": "assign4.Solver",
