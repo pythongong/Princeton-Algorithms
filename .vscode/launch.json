@@ -3,6 +3,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Outcast",
+            "request": "launch",
+            "mainClass": "assign6.Outcast",
+            "projectName": "princeton-algorithms_6c4b023"
+        },
+        {
+            "type": "java",
+            "name": "SAP",
+            "request": "launch",
+            "mainClass": "assign6.SAP",
+            "projectName": "princeton-algorithms_6c4b023"
+        },
+        {
+            "type": "java",
+            "name": "WordNet",
+            "request": "launch",
+            "mainClass": "assign6.WordNet",
+            "projectName": "princeton-algorithms_6c4b023"
+        },
+        {
+            "type": "java",
             "name": "KdTreeVisualizer",
             "request": "launch",
             "mainClass": "assign5.KdTreeVisualizer",

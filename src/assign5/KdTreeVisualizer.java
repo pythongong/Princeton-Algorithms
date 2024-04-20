@@ -24,7 +24,7 @@ public class KdTreeVisualizer {
             String filename = args[0];
             testFilePoints(filename);
         }
-        // testRandomPoints();
+        testRandomPoints();
     }
 
     private static void testFilePoints(String filename) {
