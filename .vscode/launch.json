@@ -3,6 +3,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ResizeDemo",
+            "request": "launch",
+            "mainClass": "assign7.ResizeDemo",
+            "projectName": "princeton-algorithms_6c4b023"
+        },
+        {
+            "type": "java",
+            "name": "PrintSeams",
+            "request": "launch",
+            "mainClass": "assign7.PrintSeams",
+            "projectName": "princeton-algorithms_6c4b023"
+        },
+        {
+            "type": "java",
+            "name": "PrintEnergy",
+            "request": "launch",
+            "mainClass": "assign7.PrintEnergy",
+            "projectName": "princeton-algorithms_6c4b023"
+        },
+        {
+            "type": "java",
             "name": "Outcast",
             "request": "launch",
             "mainClass": "assign6.Outcast",

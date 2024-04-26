@@ -116,7 +116,7 @@ public class SAP {
 
     private int updateQueue(Queue<Integer> queue, boolean[] marked, int[] distTo) {
         int p = queue.dequeue();
-        if(distTo[p] > minLen) {
+        if (distTo[p] > minLen) {
             return -1;
         }
         for (int n : graph.adj(p)) {
