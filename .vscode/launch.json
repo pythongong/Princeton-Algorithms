@@ -3,6 +3,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "BoggleSolver",
+            "request": "launch",
+            "mainClass": "assign9.BoggleSolver",
+            "projectName": "princeton-algorithms_6c4b023"
+        },
+        {
+            "type": "java",
+            "name": "BoggleBoard",
+            "request": "launch",
+            "mainClass": "assign9.BoggleBoard",
+            "projectName": "princeton-algorithms_6c4b023"
+        },
+        {
+            "type": "java",
+            "name": "BaseballElimination",
+            "request": "launch",
+            "mainClass": "assign8.BaseballElimination",
+            "projectName": "princeton-algorithms_6c4b023"
+        },
+        {
+            "type": "java",
             "name": "ResizeDemo",
             "request": "launch",
             "mainClass": "assign7.ResizeDemo",
