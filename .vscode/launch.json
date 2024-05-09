@@ -3,6 +3,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "BurrowsWheeler",
+            "request": "launch",
+            "mainClass": "assign10.BurrowsWheeler",
+            "projectName": "princeton-algorithms_6c4b023"
+        },
+        {
+            "type": "java",
+            "name": "CircularSuffixArray",
+            "request": "launch",
+            "mainClass": "assign10.CircularSuffixArray",
+            "projectName": "princeton-algorithms_6c4b023"
+        },
+        {
+            "type": "java",
+            "name": "MoveToFront",
+            "request": "launch",
+            "mainClass": "assign10.MoveToFront",
+            "projectName": "princeton-algorithms_6c4b023"
+        },
+        {
+            "type": "java",
             "name": "BoggleSolver",
             "request": "launch",
             "mainClass": "assign9.BoggleSolver",
