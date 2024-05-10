@@ -6,6 +6,8 @@ import java.util.Arrays;
 
 public class SeamCarver {
 
+    private static final double BOUNDARY_ENERGY = 1000.0;
+
     private Picture picture;
 
     private double[][] energies;
@@ -15,8 +17,7 @@ public class SeamCarver {
         if (picture == null) {
             throw new IllegalArgumentException("picture is null");
         }
-        this.picture = new Picture(picture);
-
+        this.picture = copyPic(picture);
     }
 
     // width of current picture
@@ -31,14 +32,14 @@ public class SeamCarver {
 
     // current picture
     public Picture picture() {
-        return new Picture(picture);
+        return copyPic(picture);
     }
 
     // energy of pixel at column x and row y
     public double energy(int x, int y) {
         checkIndex(x, y);
         if (onBorder(x, y)) {
-            return 1000;
+            return BOUNDARY_ENERGY;
         }
         Color left = picture.get(x-1, y);
         Color right = picture.get(x+1, y);
@@ -55,13 +56,9 @@ public class SeamCarver {
         if (picture.height() == 1) {
             return defaultSeam(1);
         }
-        createEnegies();
+        createEnergies();
         double[][] energyTo = createEnergyTo();
-        int[][] colTo = new int[picture.width()][picture.height()];
-        for (int col = 1; col < picture.width()-1; col++) {
-            energyTo[col][1] = energies[col][1] + 1000;
-            colTo[col][1] = col;
-        }
+        int[][] colTo = createColTo(energyTo);
         double minEnergy = Double.POSITIVE_INFINITY;
         int minCol = 0;
         for (int row = 2; row < picture.height(); row++) {
@@ -82,18 +79,10 @@ public class SeamCarver {
             }
         }
         int[] cols = new int[picture.height()];
-        cols[cols.length-1] = minCol;
-        for (int i = cols.length-2; i >= 0; i--) {
-            minCol = colTo[minCol][i+1];
+        for (int i = cols.length-1; i >= 0; minCol = colTo[minCol][i], i--) {
             cols[i] = minCol;
         }
         return cols;
-    }
-
-    private int[] defaultSeam(int size) {
-        int[] seam = new int[size];
-        Arrays.fill(seam, 0);
-        return seam;
     }
 
     // sequence of indices for horizontal seam
@@ -104,13 +93,9 @@ public class SeamCarver {
         if (picture.width() == 1) {
             return defaultSeam(1);
         }
-        createEnegies();
+        createEnergies();
         double[][] energyTo = createEnergyTo();
-        int[][] rowTo = new int[picture.width()][picture.height()];
-        for (int row = 1; row < picture.height()-1; row++) {
-            energyTo[1][row] = energies[1][row] + 1000;
-            rowTo[1][row] = row;
-        }
+        int[][] rowTo = createRowTo(energyTo);
         double minEnergy = Double.POSITIVE_INFINITY;
         int minRow = 0;
         for (int col = 2; col < picture.width(); col++) {
@@ -141,6 +126,8 @@ public class SeamCarver {
         return rows;
     }
 
+    
+
     // remove horizontal seam from current picture
     public void removeHorizontalSeam(int[] seam) {
         if (picture.height() <= 1) {
@@ -159,11 +146,9 @@ public class SeamCarver {
             }
         }
         
-        
         picture = newPicture;
+        energies = null;
     }
-
-    
 
     // remove vertical seam from current picture
     public void removeVerticalSeam(int[] seam) {
@@ -183,6 +168,43 @@ public class SeamCarver {
             }
         }
         picture = newPicture;
+        energies = null;
+    }
+
+    private int[][] createColTo(double[][] energyTo) {
+        int[][] colTo = new int[picture.width()][picture.height()];
+        for (int col = 1; col < picture.width()-1; col++) {
+            energyTo[col][1] = energies[col][1] + BOUNDARY_ENERGY;
+            colTo[col][1] = col;
+        }
+        return colTo;
+    }
+
+
+    private int[][] createRowTo(double[][] energyTo) {
+        int[][] rowTo = new int[picture.width()][picture.height()];
+        for (int row = 1; row < picture.height()-1; row++) {
+            energyTo[1][row] = energies[1][row] + BOUNDARY_ENERGY;
+            rowTo[1][row] = row;
+        }
+        return rowTo;
+    }
+
+
+    private int[] defaultSeam(int size) {
+        int[] seam = new int[size];
+        Arrays.fill(seam, 0);
+        return seam;
+    }
+
+    private Picture copyPic(Picture oldPic) {
+        Picture newPic = new Picture(oldPic.width(), oldPic.height());
+        for (int i = 0; i < oldPic.width(); i++) {
+            for (int j = 0; j < oldPic.height(); j++) {
+                newPic.setRGB(i, j, oldPic.getRGB(i, j));
+            }
+        }
+        return newPic;
     }
 
     private void checkSeam(int[] seam, boolean isHorizontal) {
@@ -209,14 +231,13 @@ public class SeamCarver {
     private double[][] createEnergyTo() {
         double[][] energyTo = new double[picture.width()][ picture.height()];
         for (int col = 0; col < picture.width(); col++) {
-            Arrays.fill(energyTo[col], Double.POSITIVE_INFINITY);;
+            Arrays.fill(energyTo[col], Double.POSITIVE_INFINITY);
         }
         return energyTo;
     }
 
-    private void createEnegies() {
-        if (energies != null && energies.length == picture.width() 
-        && energies[0].length == picture.height()) {
+    private void createEnergies() {
+        if (energies != null) {
             return;
         }
         energies = new double[picture.width()][picture.height()];
