@@ -3,6 +3,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "LetterTrie",
+            "request": "launch",
+            "mainClass": "assign9.LetterTrie",
+            "projectName": "princeton-algorithms_6c4b023"
+        },
+        {
+            "type": "java",
             "name": "BurrowsWheeler",
             "request": "launch",
             "mainClass": "assign10.BurrowsWheeler",
