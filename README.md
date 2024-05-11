@@ -3,8 +3,10 @@
 This repository contains my solution for the assignments of  PrincetonaAlgorithm course.
 
 All my solutions has gained 100 score with bonus
+algorithms1 grade
 ![algorithms1 grade](https://github.com/pythongong/images/blob/main/image.png)
 
+algorithms2 grade
 ![algorithms2 grade](https://github.com/pythongong/images/blob/main/algorithms%202.jpeg)
 
 # Course Link
@@ -26,7 +28,9 @@ Meanwhile, the compiled output files will be generated in the bin folder by defa
 [Assignment 1: percolation](https://coursera.cs.princeton.edu/algs4/assignments/percolation/specification.php)
 
 This assignment test the application of union-find data type.
+
 PercolationVisualizer class is a test class given by the course.
+
 The most diffcult part is how to determine whether the site is connected to the top or bottom row
 as you only have one root in union-find.
 I create the virtual top root and bottom root
@@ -46,7 +50,9 @@ If you add all items to the queue, then you won't pass the bonus test.
 [Assignment 3 : colinear](https://coursera.cs.princeton.edu/algs4/assignments/collinear/specification.php)
 
 This assignment tests the applciation of sort algorthims.
+
 BruteCollinearPoints implements brute force solution.
+
 LineSegment uses the standard libaray sort to optimize.
 
 # Assignment 4
@@ -90,5 +96,3 @@ This assignment test if you understand the string sort algorithms and modify it 
 I use LSD algorithm to optimize CircularSuffixArray first 
 then realize that it's even smaller than the standard sort.
 Then I use the modified MSD algorithm and pass the test.
-
-Then I use the modified  inverseTransform()
