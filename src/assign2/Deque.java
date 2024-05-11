@@ -3,6 +3,10 @@ package assign2;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+/**
+ * A double-ended queue or deque (pronounced “deck”) is a generalization of a stack and a queue 
+ * that supports adding and removing items from either the front or the back of the data structure.
+ */
 public class Deque<Item> implements Iterable<Item> {
 
     private Node head;
@@ -106,6 +110,7 @@ public class Deque<Item> implements Iterable<Item> {
         return new LinkedIterator();
     }
 
+    // an iterator that iterates randomly but not returns the repeated item
     private final class LinkedIterator implements Iterator<Item> {
 
         private Node current;
@@ -131,7 +136,9 @@ public class Deque<Item> implements Iterable<Item> {
         
     }
 
+    // queue node
     private final class Node {
+        
         private Item val;
 
         private Node previous;

@@ -1,7 +1,9 @@
 # Princeton Algorithm
 
-This repository contains my solution for the assignments of  PrincetonaAlgorithm course
+This repository contains my solution for the assignments of  PrincetonaAlgorithm course.
 
+All my solutions has gained 100 score with bonus
+(https://github.com/pythongong/images/blob/main/image.png)
 
 # Course Link
 [Coursera course website : part1](https://www.coursera.org/learn/algorithms-part1/home/welcome)
@@ -9,13 +11,13 @@ This repository contains my solution for the assignments of  PrincetonaAlgorithm
 [Coursera course website : part2](https://www.coursera.org/learn/algorithms-part2/home/welcome)
 
 
-
 # Folder Structure
 The workspace contains two folders by default, where:
 
-src: the folder to maintain sources
-lib: the folder to maintain dependencies
+- src: the folder to maintain sources
+- lib: the folder to maintain dependencies
 Meanwhile, the compiled output files will be generated in the bin folder by default.
+
 
 # Assignment 1
 
