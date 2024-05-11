@@ -3,7 +3,7 @@
 This repository contains my solution for the assignments of  PrincetonaAlgorithm course.
 
 All my solutions has gained 100 score with bonus
-(https://github.com/pythongong/images/blob/main/image.png)
+![algorithms1 grade](https://github.com/pythongong/images/blob/main/image.png)
 
 # Course Link
 [Coursera course website : part1](https://www.coursera.org/learn/algorithms-part1/home/welcome)
