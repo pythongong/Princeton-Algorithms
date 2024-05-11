@@ -3,10 +3,11 @@
 This repository contains my solution for the assignments of  PrincetonaAlgorithm course.
 
 All my solutions has gained 100 score with bonus
-algorithms1 grade
+
+Algorithms1 grade
 ![algorithms1 grade](https://github.com/pythongong/images/blob/main/image.png)
 
-algorithms2 grade
+Algorithms2 grade
 ![algorithms2 grade](https://github.com/pythongong/images/blob/main/algorithms%202.jpeg)
 
 # Course Link
@@ -20,6 +21,7 @@ The workspace contains two folders by default, where:
 
 - src: the folder to maintain sources which are my solution codes.
 - lib: the folder to maintain dependency which is given by the course.
+
 Meanwhile, the compiled output files will be generated in the bin folder by default.
 
 
@@ -68,15 +70,15 @@ This assignment tests if you understand the binary search tree and modify it for
 # Assignment 6
 [Assignment 6 : WordNet](https://coursera.cs.princeton.edu/algs4/assignments/wordnet/specification.php)
 
-This assignment tests the applciation of directed graph,
+This assignment tests the applciation of directed graph.
 
 # Assignment 7
 [Assignment 7 : Seam-Carving](https://coursera.cs.princeton.edu/algs4/assignments/seam/specification.php)
 
 This assignment tests if you understand the shortest path algorthims and modify it for different applications.
 
+
 It's actually the same as dynmaic programming in this assignment.
-Note that the 
 
 # Assignment 8
 [Assignment 8 : Baseball Elimenation](https://coursera.cs.princeton.edu/algs4/assignments/baseball/specification.php)
@@ -91,7 +93,9 @@ This assignment test if you understand trie and modify it for different applicat
 # Assignment 10
 [Assignment 10 : Burrows-Wheeler](https://coursera.cs.princeton.edu/algs4/assignments/burrows/specification.php)
 
-This assignment test if you understand the string sort algorithms and modify it for different applications. If you use the standard libaray sort, then you won't pass the timing test.
+This assignment test if you understand the string sort algorithms and modify it for different applications. 
+
+If you use the standard libaray sort, then you won't pass the timing test. 
 
 I use LSD algorithm to optimize CircularSuffixArray first 
 then realize that it's even smaller than the standard sort.
