@@ -5,6 +5,8 @@ This repository contains my solution for the assignments of  PrincetonaAlgorithm
 All my solutions has gained 100 score with bonus
 ![algorithms1 grade](https://github.com/pythongong/images/blob/main/image.png)
 
+![algorithms2 grade](https://github.com/pythongong/images/blob/main/algorithms%202.jpeg)
+
 # Course Link
 [Coursera course website : part1](https://www.coursera.org/learn/algorithms-part1/home/welcome)
 
