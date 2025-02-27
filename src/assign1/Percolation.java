@@ -4,59 +4,52 @@ import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
 /**
  * It models a percolation system by  n-by-n grid of sites
- * Each site is either open or blocked. 
- * A full site is an open site that can be connected to an open site in the top row 
- * via a chain of neighboring (left, right, up, down) open sites. 
- * We say the system percolates if there is a full site in the bottom row. 
- * In other words, a system percolates 
- * if we fill all open sites connected to the top row 
- * and that process fills some open site on the bottom row.
+ * Each site can either be open or blocked. A full site is an open site 
+ * that can connect to an open site in the top row 
+ * via neighboring (left, right, up, down) open sites. 
+ * A system percolates if there exists an open site 
+ * connected to the top row that also connect to the bottom row.
  */
 public class Percolation {
 
-    // this is for connecting neibours of a site
+    // Direction vectors for negihbors (left, right, up, down)
     private static final byte[] DX = {-1, 0, 0, 1};
     private static final byte[] DY = {0, -1, 1, 0};
 
-    // row starts from 1
+    // Constant integer for the top row in the grid (1-indexed)
     private static final int TOP = 1;
 
-    // use the byte 100 to express a site is open
-    private static final byte OPEN = 4;
-
-    // use the byte 010 to express a site connects to the top row
-    private static final byte TOP_CONNECTED = 2;
-
-    // use the byte 001 to express a site connects to the bottom row
+    // Constant bytes for site connectivity 
+   // (to bottom row 001, to top 010, to open 100 and percolation 111)
     private static final byte BOTTOM_CONNECTED = 1;
-
-    // use the byte 111 to express the system percolates
+    private static final byte TOP_CONNECTED = 2;
+    private static final byte OPEN = 4;
     private static final byte PERCOLATED =  7;
 
-    // an byte array tp store the status of the site
+    // An array tp store the status of each site
     private final byte[] statuses;
 
-    // number of open sites
+    // Counter for the number of open sites
     private int openSites;
 
-    // the length of the system array
+    // Grid size (length of one side of the square grid)
     private final int len;
 
-    // union-find data type to determine whether two sites are connected
+    // Union-find structure to track site connectivity
     private final WeightedQuickUnionUF uf;
 
-    // flag of whether the system peroclates
+    // Flag indicating whether the system peroclates
     private boolean isPercolated;
 
 
     /**
-     * 
-     * @param n size of grid
-     * @throws IllegalArgumentException
+     * Constructor initializes the percolation system.
+     * @param n The size of the grid (n x n).
+     * @throws IllegalArgumentException if n <= 0.
      */
     public Percolation(int n) {
         if (n <= 0) {
-            throw new IllegalArgumentException("input number must be greater than 0");
+            throw new IllegalArgumentException("Grid size must be greater than 0");
         }
         // the row and col start from 1, so we plus 2
         statuses = new byte[n*n+2];
@@ -65,18 +58,16 @@ public class Percolation {
         len = n;
     }
 
-    
-
  
     /**
-     * opens the site (row, col) if it is not open already
-     * 
-     * @param row row of the site
-     * @param col col of the site
+     * Opens the site at the specified row and column.
+     * @param row The row of the site
+     * @param col The column of the site
      */
     public void open(int row, int col) {
         validate(row);
         validate(col);
+        // If the site is already open, do nothing
         if (isOpen(row, col)) {
             return;
         }
@@ -86,7 +77,7 @@ public class Percolation {
 
 
     /**
-     * 
+     * Checks if the site at the specified row and column is open.
      * @param row row of the site
      * @param col col of the site
      * @return is the site (row, col) open?
@@ -98,11 +89,10 @@ public class Percolation {
     }
 
     /**
-     * If a site connects to the top row, then it's full
-     * 
+     * Checks if the site at the specified row and column is full (connected to top row).
      * @param row row of the site
-     * @param col col of the site
-     * @return is the site (row, col) full?
+     * @param col column of the site
+     * @return True if the site is open, false otherwise.
      */
     public boolean isFull(int row, int col) {
         validate(row);
@@ -112,36 +102,44 @@ public class Percolation {
         return (statuses[root] & TOP_CONNECTED) == TOP_CONNECTED;
     }
 
-    // returns the number of open sites
+    /**
+     * Get the number of open sites in the system.
+     * @return the number of open sites
+     */
     public int numberOfOpenSites() {
         return openSites;
     }
 
     /**
-     * 
-     * @return does the system percolate?
+     * Checks if the system percolates (i.e., there's a path from top to bottom).
+     * @return true if the system percolates, false otherwise. 
      */
     public boolean percolates() {
         return isPercolated;
     }
 
    
-    // connect current site with its neighbors 
-    // and update current site's and its neihbors' statuses
+    /**
+     * Connects the current site with its neighbors if they're open.
+     * Update the site statuses and union-find structure.
+     * @param row row of the site
+     * @param col column of the site
+     */
     private void connectNeighbors(int row, int col) {
         int index = convertTwoDindex(row, col);
 
-        // initial status to open
+        // Initial status of the site
         byte curStatus = OPEN;
         if (row == TOP) {
             curStatus = (byte) (curStatus | TOP_CONNECTED);
         }
 
-        // Don't use else as when n = 1, row can be either the top row and bottom row
+        // If it's in the bottom row, mark it's bottom-connected
         if (row == len) {
             curStatus = (byte) (curStatus | BOTTOM_CONNECTED);
         }
         
+        // Check and connect to all neighboring open sites
         for (int i = 0; i < DX.length; i++) {
             int neighborRow = row + DY[i];
             int neighborCol = col + DX[i];
@@ -149,7 +147,7 @@ public class Percolation {
                 int neighborIndex = convertTwoDindex(neighborRow, neighborCol);
                 int root = uf.find(neighborIndex);
                 
-                // update current status by old roots
+                // Update current based on neighbors' statues
                 curStatus = (byte) (statuses[root] | curStatus);
                 statuses[neighborIndex] = curStatus;
                 uf.union(neighborIndex, index);
@@ -160,24 +158,38 @@ public class Percolation {
         statuses[root] = curStatus;
         statuses[index] = curStatus;
 
-        // if the systems percolates, update the flag
+        // If the systems percolates, update the flag
         if (curStatus == PERCOLATED) {
             isPercolated = true;
         }
     }
     
-    // row and col starts from 1 and is no greater than len
+    /**
+     * Validate the row/column values (must be within valid bounds).
+     * @param n row/column of the site
+     */
     private void validate(int n) {
         if (n <= 0 || n > len) {
-            throw new IllegalArgumentException("input number can't be 0 and negative and greater than n");
+            throw new IllegalArgumentException("Invalid index for row/column");
         }
     }
 
-    // convert 2D array index that starts from 0 to 1D index that starts from 1
-    private int convertTwoDindex(int i, int j) {
-        return ((i-1) * len) + (j-1);
+    /**
+     * Convert 2D index to 1D index.
+     * @param row row of the site
+     * @param col column of the site
+     * @return 1D index
+     */
+    private int convertTwoDindex(int row, int col) {
+        return ((row-1) * len) + (col-1);
     }
 
+    /**
+     *  Check if the site is within the grid boundaries.
+     * @param row row of the site
+     * @param col column of the site
+     * @return true if the site is within the grid boundaries, false otherwise.
+     */
     private boolean isInGrid(int row, int col) {
         return row > 0 && row <= len && col > 0 && col <= len;
     }

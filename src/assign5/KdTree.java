@@ -7,6 +7,10 @@ import edu.princeton.cs.algs4.Point2D;
 import edu.princeton.cs.algs4.RectHV;
 import edu.princeton.cs.algs4.StdDraw;
 
+/**
+ * This class implements a kd-tree 
+ * by using the 2d-tree that is a generalization of a BST to two-dimensional keys. 
+ */
 public class KdTree {
 
     private Node root;

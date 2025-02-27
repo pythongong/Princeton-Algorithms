@@ -5,7 +5,9 @@ import edu.princeton.cs.algs4.MinPQ;
 import edu.princeton.cs.algs4.Stack;
 import edu.princeton.cs.algs4.StdOut;
 
-// find a solution to the initial board (using the A* algorithm)
+/**
+ * This class finds a solution to the initial board (using the A* algorithm)
+ */
 public class Solver {
 
     private Stack<Board> pathBoards;

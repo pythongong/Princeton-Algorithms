@@ -3,6 +3,12 @@ package assign10;
 import edu.princeton.cs.algs4.BinaryStdIn;
 import edu.princeton.cs.algs4.BinaryStdOut;
 
+/**
+ * This class implements the move-to-front encoding that maintains an ordered sequence of the characters 
+ * in the alphabet by repeatedly reading a character from the input message; 
+ * printing the position in the sequence in which that character appears; 
+ * and moving that character to the front of the sequence. 
+ */
 public class MoveToFront {
 
     // extended ASCII alphabet size

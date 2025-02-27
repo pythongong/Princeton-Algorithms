@@ -3,6 +3,11 @@ package assign10;
 import edu.princeton.cs.algs4.BinaryStdIn;
 import edu.princeton.cs.algs4.BinaryStdOut;
 
+/**
+ * This class implements a sorting-based Burrows–Wheeler algorithm. 
+ * It rearranges the characters in the input so that there are lots of clusters 
+ * with repeated characters. 
+ */
 public class BurrowsWheeler {
 
     // extended ASCII alphabet size

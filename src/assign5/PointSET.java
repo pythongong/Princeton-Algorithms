@@ -7,6 +7,9 @@ import java.util.TreeSet;
 import edu.princeton.cs.algs4.Point2D;
 import edu.princeton.cs.algs4.RectHV;
 
+/**
+ * This class implements a kd-tree by using TreeSet.
+ */
 public class PointSET {
     
     private TreeSet<Point2D> pointSet;

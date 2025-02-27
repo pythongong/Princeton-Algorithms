@@ -1,5 +1,17 @@
 package assign3;
 
+/*************************************************************************
+ *  Compilation:  javac LineSegment.java
+ *  Execution:    none
+ *  Dependencies: Point.java
+ *
+ *  An immutable data type for Line segments in the plane.
+ *  For use on Coursera, Algorithms Part I programming assignment.
+ *
+ *  DO NOT MODIFY THIS CODE.
+ *
+ *************************************************************************/
+
 public class LineSegment {
     private final Point p;   // one endpoint of this line segment
     private final Point q;   // the other endpoint of this line segment
@@ -54,3 +66,4 @@ public class LineSegment {
         throw new UnsupportedOperationException("hashCode() is not supported");
     }
 }
+

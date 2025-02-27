@@ -5,7 +5,7 @@ import java.util.Arrays;
 import edu.princeton.cs.algs4.Bag;
 
 /**
- * Board
+ * This class is a immutable data type that models an n-by-n board with sliding tiles.
  */
 public class Board {
 

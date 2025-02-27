@@ -12,7 +12,10 @@ import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.Queue;
 
 /**
- * WordNet
+ * This class creates a WordNet that is a semantic lexicon for the English language. 
+ * It's a digraph: each vertex v is an integer that represents a synset, 
+ * and each directed edge v→w represents that w is a hypernym of v. 
+ * This digraph is acyclic and has one vertex—the root—that is an ancestor of every other vertex.
  */
 public class WordNet {
 

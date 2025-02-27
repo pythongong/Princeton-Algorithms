@@ -6,6 +6,10 @@ import edu.princeton.cs.algs4.Queue;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
+/**
+ * This class is an immutable data type 
+ * that finds the shortest ancestral path between two vertices v and w in a digraph. 
+ */
 public class SAP {
 
     private final Digraph graph;

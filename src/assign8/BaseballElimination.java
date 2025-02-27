@@ -13,7 +13,7 @@ import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdOut;
 
 /**
- * BaseballElimination
+ * This class uses the max-flow algorthim to solve the problem. 
  */
 public class BaseballElimination {
 

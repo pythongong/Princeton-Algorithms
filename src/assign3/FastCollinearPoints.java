@@ -7,7 +7,12 @@ import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdDraw;
 import edu.princeton.cs.algs4.StdOut;
 
-// finds all line segments containing 4 or more points
+/**
+ * This class gives a faster, sorting-based solution to find all line segments.
+ * It sorts the points according to the slopes they makes with a point p.  
+ * If any 3 (or more) adjacent points in the sorted order have equal slopes with respect to p, 
+ * these points, together with p, are collinear.
+ */
 public class FastCollinearPoints {
 
     private LineSegment[] lines;

@@ -4,6 +4,9 @@ import edu.princeton.cs.algs4.Picture;
 import java.awt.Color;
 import java.util.Arrays;
 
+/**
+ * This class implements the seam-carving algorithm by using the shortest path algorthims.
+ */
 public class SeamCarver {
 
     private static final double BOUNDARY_ENERGY = 1000.0;

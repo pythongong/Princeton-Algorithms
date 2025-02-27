@@ -1,5 +1,10 @@
 package assign10;
 
+/**
+ * This class implements the key component in the Burrows–Wheeler transform, known as the circular suffix array, 
+ * which describes the abstraction of a sorted array of the n circular suffixes of a string of length n. 
+ */
+
 public class CircularSuffixArray {
 
     // cutoff to insertion sort

@@ -3,6 +3,9 @@ package assign6;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdOut;
 
+/**
+ * This class is an immutable data type that identifies an outcast in the WordNet. 
+ */
 public class Outcast {
 
     private final WordNet wordNet;

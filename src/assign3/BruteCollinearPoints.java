@@ -4,7 +4,11 @@ import java.util.Arrays;
 
 import edu.princeton.cs.algs4.Bag;
 
-// finds all line segments containing 4 points
+/**
+ * This class implements brute force solution to find all line segments. 
+ * It examines 4 points at a time and checks whether they all lie on the same line segment, 
+ * returning all such line segments. 
+ */
 public class BruteCollinearPoints {
 
     private LineSegment[] lines;
